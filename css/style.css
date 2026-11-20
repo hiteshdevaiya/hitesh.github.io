@@ -37,9 +37,15 @@ main .about,main .blog,main .contact,main .profile,main .resume,main .works{bord
 @media only screen and (min-width:1040px){header{box-shadow:none}}
 
 /* Refined portfolio hero */
-.profile-background{height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,#8eddf1 0%,#a9d9f7 48%,#b9c9f7 100%);background-size:200% 200%}
+.profile-background{height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,#8eddf1 0%,#a9d9f7 48%,#b9c9f7 100%);background-size:100% 100%;animation:none!important}
 .profile-background::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgb(255 255 255 / .12) 1px,transparent 1px),linear-gradient(90deg,rgb(255 255 255 / .12) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,rgb(0 0 0 / .65),transparent)}
 .profile-background::after{content:'';position:absolute;width:210px;height:210px;right:-72px;top:-82px;border:38px solid rgb(255 255 255 / .14);border-radius:50%}
+.profile-tech-stack{position:absolute;top:55px;left:24px;right:24px;z-index:2;display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:0}
+.profile-tech-stack span{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgb(255 255 255 / .75);border-radius:9px;background:rgb(255 255 255 / .62);box-shadow:0 5px 13px rgb(37 99 235 / .09);backdrop-filter:blur(6px);font-size:15px;animation:none!important;transition:none!important;transform:none!important}
+main .profile{animation:none!important}
+.profile-tech-stack img{display:block;width:20px;height:20px;object-fit:contain}
+.profile-tech-stack .tech-express img{width:27px;height:auto}
+.tech-php{color:#777bb4}.tech-laravel{color:#ff2d20}.tech-node{color:#339933}.tech-express{color:#222}.tech-aws{color:#ff9900}.tech-payment{color:#635bff}.tech-maps{color:#34a853}.tech-mysql{color:#00758f}.tech-postgres{color:#336791}
 .profile-content{padding:0 22px}
 .profile-image{height:70px}
 .profile-image img{top:-66px;width:120px;border:4px solid #fff;box-shadow:0 12px 32px rgb(37 99 235 / .24)}
@@ -56,7 +62,7 @@ main .about,main .blog,main .contact,main .profile,main .resume,main .works{bord
 .profile-buttons a{height:70px;line-height:1.25;padding:0 7px;box-sizing:border-box}
 .profile-buttons a:first-child{box-shadow:inset 0 1px 0 rgb(255 255 255 / .22)}
 @media only screen and (min-width:1040px){.profile-buttons{position:absolute;left:0;right:0;bottom:0;margin-top:0}}
-@media (max-width:480px){.profile-background{height:205px}.profile-content{padding:0 14px}.profile-name{font-size:28px}.profile-profession{font-size:13px}.profile-summary{font-size:12px}.profile-buttons a{font-size:10px;padding:0 4px}.profile-buttons a i{margin-left:5px}}
+@media (max-width:480px){.profile-background{height:205px}.profile-tech-stack{top:50px;left:14px;right:14px}.profile-tech-stack span{width:25px;height:25px;border-radius:7px;font-size:12px}.profile-tech-stack img{width:16px;height:16px}.profile-tech-stack .tech-express img{width:21px}.profile-content{padding:0 14px}.profile-name{font-size:28px}.profile-profession{font-size:13px}.profile-summary{font-size:12px}.profile-buttons a{font-size:10px;padding:0 4px}.profile-buttons a i{margin-left:5px}}
 .contact.about-services>.contact-copy{display:block;padding:5px 17px}
 .contact.about-services>.contact-copy::after{display:none}
 .contact-copy p{margin:1em 0;text-align:left}
