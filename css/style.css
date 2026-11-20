@@ -18,6 +18,7 @@ button,input,textarea{transition:border-color .3s,box-shadow .3s}button:focus,in
 @keyframes ringPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.6}}
 @keyframes textShine{to{background-position:200% center}}
 @keyframes dotPulse{0%{box-shadow:0 0 0 0 rgb(59 130 246 / .5)}70%{box-shadow:0 0 0 8px rgb(59 130 246 / 0)}100%{box-shadow:0 0 0 0 rgb(59 130 246 / 0)}}
+@keyframes availabilityPulse{0%,100%{opacity:1;box-shadow:0 0 0 4px rgb(34 197 94 / .12)}50%{opacity:.35;box-shadow:0 0 0 7px rgb(34 197 94 / 0)}}
 @keyframes barGrow{from{width:0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes slideIn{from{opacity:0;transform:translateX(-8px) translateY(18px)}to{opacity:1;transform:translateX(-8px)}}
@@ -29,8 +30,33 @@ header nav{position:relative}header nav a.selected{color:#3b82f6}header nav a.se
 @keyframes barGrowAgain{from{width:0}}
 .reveal-ready .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s);will-change:opacity,transform}.reveal-ready .reveal.in{opacity:1;transform:none}
 main .about,main .blog,main .contact,main .profile,main .resume,main .works{border-radius:16px}header{border-radius:0 0 16px 16px}@media only screen and (min-width:1040px){header{border-radius:16px}main .about,main .contact,main .resume{border-radius:0 16px 16px 0}main .view::-webkit-scrollbar{width:16px}main .view::-webkit-scrollbar-track{background:transparent;margin:18px 0}main .view::-webkit-scrollbar-thumb{background:linear-gradient(#38bdf8,#3b82f6) padding-box;border:5px solid transparent;border-radius:10px}main .view::-webkit-scrollbar-thumb:hover{border-width:4px}}
-@media (prefers-reduced-motion:reduce){.background.gradient,.background.gradient::after,.background.gradient::before,.profile-background,.profile-image::before,.profile-profession,.resume-line .date.active::before{animation:none}}
+@media (prefers-reduced-motion:reduce){.background.gradient,.background.gradient::after,.background.gradient::before,.profile-background,.profile-image::before,.profile-profession,.resume-line .date.active::before,.profile-availability span{animation:none}}
 .profile-buttons a{width:33.333%}.profile-buttons a:nth-child(2)::after{content:'';position:absolute;right:0;top:0;width:1px;height:100%;background:radial-gradient(ellipse at top,rgb(197 202 213 / .7) 0,#fff0 70%)}
 .profile-availability{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 16px 0;font-size:12px;line-height:1.4;color:#626262}.profile-availability span{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 4px rgb(59 130 246 / .12)}.profile-buttons{margin-top:25px}.profile-buttons a:first-child{color:#fff;background:linear-gradient(135deg,#3b82f6,#38bdf8)}.profile-buttons a:first-child:hover{color:#fff;background:linear-gradient(135deg,#2563eb,#0ea5e9)}
 .nav-indicator{display:none}
 @media only screen and (min-width:1040px){header{box-shadow:none}}
+
+/* Refined portfolio hero */
+.profile-background{height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,#8eddf1 0%,#a9d9f7 48%,#b9c9f7 100%);background-size:200% 200%}
+.profile-background::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgb(255 255 255 / .12) 1px,transparent 1px),linear-gradient(90deg,rgb(255 255 255 / .12) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,rgb(0 0 0 / .65),transparent)}
+.profile-background::after{content:'';position:absolute;width:210px;height:210px;right:-72px;top:-82px;border:38px solid rgb(255 255 255 / .14);border-radius:50%}
+.profile-content{padding:0 22px}
+.profile-image{height:70px}
+.profile-image img{top:-66px;width:120px;border:4px solid #fff;box-shadow:0 12px 32px rgb(37 99 235 / .24)}
+.profile-image::before{top:-55px;left:calc(50% - 70px);width:120px;height:120px;background:rgb(56 189 248 / .18)}
+.profile-name{font-size:31px;line-height:1.15;font-weight:600;letter-spacing:-.025em}
+.profile-profession{max-width:410px;margin:7px auto 0;font-size:14px;line-height:1.45;font-weight:500}
+.profile-summary{max-width:385px;margin:8px auto 0;color:#64748b;font-size:13px;line-height:1.5}
+.profile-social{display:flex;justify-content:center;gap:8px;margin-top:11px}
+.profile-social a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;margin:0;border-radius:50%;background:#f1f5f9;color:#334155;font-size:14px;transition:color .25s,background .25s,transform .25s}
+.profile-social a:hover{background:#e0f2fe;color:#2563eb;transform:translateY(-2px)}
+.profile-availability{width:fit-content;max-width:calc(100% - 24px);margin:11px auto 0;padding:7px 13px;border:1px solid #dbeafe;border-radius:20px;background:#f8fbff;color:#475569;font-size:11px}
+.profile-availability span{background:#22c55e;box-shadow:0 0 0 4px rgb(34 197 94 / .12);animation:availabilityPulse 1.5s ease-in-out infinite}
+.profile-buttons{margin-top:15px}
+.profile-buttons a{height:70px;line-height:1.25;padding:0 7px;box-sizing:border-box}
+.profile-buttons a:first-child{box-shadow:inset 0 1px 0 rgb(255 255 255 / .22)}
+@media only screen and (min-width:1040px){.profile-buttons{position:absolute;left:0;right:0;bottom:0;margin-top:0}}
+@media (max-width:480px){.profile-background{height:205px}.profile-content{padding:0 14px}.profile-name{font-size:28px}.profile-profession{font-size:13px}.profile-summary{font-size:12px}.profile-buttons a{font-size:10px;padding:0 4px}.profile-buttons a i{margin-left:5px}}
+.contact.about-services>.contact-copy{display:block;padding:5px 17px}
+.contact.about-services>.contact-copy::after{display:none}
+.contact-copy p{margin:1em 0;text-align:left}
